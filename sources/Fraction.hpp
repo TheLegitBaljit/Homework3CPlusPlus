@@ -17,15 +17,19 @@ private:
     // a helper function that reduces the fraction to its lowest terms
     void reduce();
 
+
+
 public:
     // constructor
     Fraction();
+    Fraction(double num);
     Fraction(int num, int den);
 
     // getters and setters
-    int getNumerator();
+    int getNumerator() const;
 
-    int getDenominator() ;
+    int getDenominator() const ;
+
 
     void setNumerator(int num) ;
 
@@ -53,15 +57,20 @@ public:
     Fraction operator++(int);
     Fraction& operator--();
     Fraction operator--(int);
-
-
 };
-std::ostream& operator<<(std::ostream& os, Fraction frac) ;
-std::istream& operator>>(std::istream& is, Fraction& frac) ;
-Fraction operator*(double num,Fraction &frac);
-Fraction operator-(double num,Fraction &frac);
-Fraction operator+(double num,Fraction &frac);
-Fraction operator/(double num,Fraction &frac);
+
+
+std::ostream& operator<<(std::ostream& ost, Fraction frac) ;
+std::istream& operator>>(std::istream& ist, Fraction& frac) ;
+Fraction operator*(double num,const Fraction &frac);
+Fraction operator-(double num,const Fraction &frac);
+Fraction operator+(double num,const Fraction &frac);
+Fraction operator/(double num,const Fraction &frac);
+bool operator==(double num,const Fraction &frac);
+bool operator>(double num,const Fraction &frac);
+bool operator<(double num,const Fraction &frac);
+bool operator>=(double num,const Fraction &frac);
+bool operator<=(double num,const Fraction &frac);
 
 
 #endif //FRACTIONS_FRACTION_HPP
